@@ -1,0 +1,13 @@
+[import](common.lg)
+
+# TextInput_Prompt_vpWmcK()
+- ${NameAsker()}
+# TextInput_InvalidPrompt_vpWmcK()
+- Please, write a name of your preference.
+- Please, tell me a name.
+# TextInput_UnrecognizedPrompt_vpWmcK()
+- I'll link set the namy to "Anonymous"
+# TextInput_DefaultValueResponse_vpWmcK()
+- Thank you!
+- You are the best!
+- Cool name!

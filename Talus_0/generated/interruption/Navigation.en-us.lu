@@ -1,0 +1,80 @@
+
+> LUIS application information
+> !# @app.versionId = 0.1
+> !# @app.culture = en-us
+> !# @app.luis_schema_version = 3.2.0
+
+
+> # Intent definitions
+
+# change_dates
+- change dates please
+- i want to change dates
+
+
+# TextInput_Response_xsLuda
+- I am interested in {@RegionExtractor=Europe}
+- I like {@RegionExtractor=Asia}
+- {@RegionExtractor=America}
+- {@anys=anywhere}
+
+
+# change_region_destination
+- I am interested to change destination to {@RegionExtractor2=Europe}
+- change destination to {@RegionExtractor2=Athens}
+- change region to {@RegionExtractor2=America}
+- i want to change region
+- i want to change destination
+
+
+# cancel
+- Cancel
+- Restart
+- go back to main menu
+- main menu
+- start again
+
+
+# change_categories
+- Basically i want to go for {@list Categories}
+- {@list Categories}
+
+
+# _Interruption
+- BookingMaker
+
+
+> # Entity definitions
+
+@ ml anys
+
+
+> # PREBUILT Entity definitions
+
+@ prebuilt geographyV2 hasRoles RegionExtractor,RegionExtractor2
+
+
+> # Phrase list definitions
+
+
+> # List entities
+
+@ list Categories = 
+	- Adventure Tourism :
+		- Adventure
+	- Wildlife Tourism :
+		- Wildlife
+	- Medical Tourism :
+		- Medical
+	- Cruise Tourism :
+		- Cruise
+	- Any :
+		- Anything
+
+
+> # RegEx entities
+
+
+> # Pattern.Any entities
+
+@ patternany "list Categories"

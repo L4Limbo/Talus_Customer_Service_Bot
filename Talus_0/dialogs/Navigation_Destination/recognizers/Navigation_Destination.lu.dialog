@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_Navigation_Destination",
+  "recognizers": {
+    "en-us": "Navigation_Destination.en-us.lu",
+    "": "Navigation_Destination.en-us.lu"
+  }
+}

@@ -1,0 +1,78 @@
+
+> LUIS application information
+> !# @app.versionId = 0.1
+> !# @app.culture = en-us
+> !# @app.luis_schema_version = 3.2.0
+
+
+> # Intent definitions
+
+# Change_email
+- Change Email
+- can i change my Email
+- i wrote my email wrong
+- email change
+- i want to use another email
+- My email is {@emailCatch=anestis2799@gmail.com}
+- {@emailCatch=info@gmail.com}
+
+
+# Change_Name
+- I want to use another name
+- change name
+- i would like to use another name
+- {@personName:userNameCatch}
+- change my name to {@personName:userNameCatch}
+
+
+# Change_Tel
+- I want to use another phone number
+- New phone number
+- I would like to use another phone number
+- change telephone number
+- change my telephone to {@phonenumber:phoneCatch}
+
+
+# _Interruption
+- Navigation
+- I want to see your deals
+- I want to learn about your packages
+- Exploration please
+- i would like to navigate through your packages
+- I want to make a Booking
+- Can I Book a Trip
+- Book a Trip
+- Create Booking
+- Can you recommend some travel options
+- Please suggest the best travel packages
+- I want to travel to New York in 25/1
+- Do you have any bundles for Asia
+- I would like to suggest me hollidays in America
+- New Search
+- I want to make another search
+- Do you have any bundles for Asia in 25/1
+- change dates please
+- i want to change dates
+- BookingMaker
+
+
+> # Entity definitions
+
+
+> # PREBUILT Entity definitions
+
+@ prebuilt email hasRole emailCatch
+
+@ prebuilt personName hasRole userNameCatch
+
+@ prebuilt phonenumber hasRole phoneCatch
+
+
+> # Phrase list definitions
+
+
+> # List entities
+
+> # RegEx entities
+
+

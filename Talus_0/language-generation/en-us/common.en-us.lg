@@ -1,0 +1,103 @@
+# WelcomeUser()
+[Activity
+    Text = ${helpText()}
+    SuggestedActions = Help | Navigation | Main Menu
+]
+
+# helpText()
+-```My name is Talus and I am a travel agent chatbot. I am here to help you navigate through our travel agency travel bundles. You can select "Navigate through packages" and then I'll collect your prefferences to recomend you the bundle that fits in your options. You can come back to main menu by selecting "Main Menu" or simple saying something like "restart"...```
+# NameAsker()
+- What's your name?
+- In which name you want to make the booking?
+
+# TelAsker()
+- Write a telephone number please...
+- Please, provide me with a telephone number
+
+# EmailAsker()
+- Please write your email
+- Could you write an email of your prefference?
+
+# BookingCorfmation()
+- ```Booking Details
+Package Title: ${conversation.package} 
+Name: ${conversation.name}
+Tel: ${conversation.tel}
+E-mail: ${conversation.email}```
+# BookingIntroduction()
+- Now, I will collect some of your personal information to complete the booking
+
+# CategoryAsk()
+- Please select a category from the options. If you don't care about the category of vacation type something like anything
+
+# RegionProp()
+- Now let's move to the destination you want to travel to. It may be a region like Europe or Asia, or you can tell me the country or island you wanna go...
+
+# RegionCard
+[HeroCard
+    title = Famous Region Choices
+    subtitle = Wanna Join?
+    text = These are some famous region choices. You can select one of them or provide me with a region of your preference.
+    buttons = Europe | Africa | Asia | Anywhere
+]
+
+# DestinationCard
+[HeroCard
+    title = Famous Destination Choices
+    subtitle = Wanna Join?
+    text = These are some famous destination choices. You can select one of them or provide me with a region of your preference.
+    buttons = Athens | London | Paros | Anywhere
+]
+
+# NavigationCorfmation_1()
+- ```Your choices
+Category: ${conversation.category}
+Region: ${titleCase(conversation.region)}
+Destination: ${titleCase(conversation.destination)}
+Date: ${conversation.date_start}```
+
+# NavigationCorfmation_2()
+- ```Your choices
+Category: ${conversation.category}
+Region: ${titleCase(conversation.region)}
+Destination: ${titleCase(conversation.destination)}
+Dates: ${conversation.date_start} to ${conversation.date_end}```
+
+# NavigationConfirmation(date_end)
+- IF: ${date_end == null}
+    - ${NavigationCorfmation_1()}
+- ELSE:
+    - ${NavigationCorfmation_2()}
+
+
+# DisplayCard(title,price,date,description,img,code)
+[HeroCard
+    title = ${title}
+    subtitle = ${date}
+    text = ${description},  ${price} Euros
+    buttons = ${cardActionLearn(description,title)} | ${cardActionBook(title)}
+    image = ${img}
+  ]
+
+#DisplayCards(datalist)
+- ${foreach(datalist ,x ,DisplayCard(x.Name, x.Price,x.Date, x.Description, x.Image, x.Id))}
+
+# AllCards(datalist)
+[Activity
+        Attachments = ${DisplayCards(datalist)}
+        AttachmentLayout = carousel
+]
+
+# cardActionBook(title)
+[CardAction
+    type=postBack
+    title = Book Now!
+    value = Book:${title}
+]
+
+# cardActionLearn(description,title)
+[CardAction
+    type=postBack
+    title = Learn more
+    value = Learn more: ${title}: ${description}
+]

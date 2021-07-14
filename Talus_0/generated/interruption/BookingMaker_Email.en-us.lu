@@ -1,0 +1,53 @@
+
+> LUIS application information
+> !# @app.versionId = 0.1
+> !# @app.culture = en-us
+> !# @app.luis_schema_version = 3.2.0
+
+
+> # Intent definitions
+
+# TextInput_Response_VPq7iX
+- My email is {@emailCatch=anestis2799@gmail.com}
+- {@emailCatch=something@yahoo.com}
+
+
+# _Interruption
+- I want to learn about your packages
+- Exploration please
+- I want to travel to New York in 25/1
+- Book a Trip
+- i want to change dates
+- I want to see your deals
+- Can you recommend some travel options
+- Create Booking
+- change dates please
+- I want to make another search
+- Can I Book a Trip
+- I want to use another name
+- New phone number
+- New Search
+- Please suggest the best travel packages
+- Navigation
+- BookingMaker
+- i would like to use another name
+- I would like to suggest me hollidays in America
+- I would like to use another phone number
+
+
+> # Entity definitions
+
+
+> # PREBUILT Entity definitions
+
+@ prebuilt email hasRole emailCatch
+
+
+> # Phrase list definitions
+
+
+> # List entities
+
+> # RegEx entities
+
+

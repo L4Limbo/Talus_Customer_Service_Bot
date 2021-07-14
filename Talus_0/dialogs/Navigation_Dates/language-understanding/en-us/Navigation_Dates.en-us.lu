@@ -1,0 +1,7 @@
+# DateTimeInput_Response_hm97jn
+- I wanna travel to {@DestinationExtractor2} from {@start_date} and come back {@end_date}
+- From {@start_date} to {@end_date}
+- i want to go to athens in {@start_date= 25 december}
+
+@ prebuilt datetimeV2 hasRoles start_date, end_date
+@ prebuilt geographyV2 hasRoles DestinationExtractor2

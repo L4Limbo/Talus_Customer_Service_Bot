@@ -1,0 +1,32 @@
+
+# Navigation
+- Navigation
+- I want to see your deals
+- I want to learn about your packages
+- Exploration please
+- i would like to navigate through your packages
+- I want to make a Booking
+- Can I Book a Trip
+- Book a Trip
+- Create Booking
+- Can you recommend some travel options
+- Please suggest the best travel packages
+- I want to travel to {@PreDestination = New York} in {@PreDate= 25/1}
+- Do you have any bundles for  {@PreDestination = Asia}
+- I would like to suggest me hollidays in {@PreDestination= America}
+- New Search
+- I want to make another search
+- Do you have any bundles for  {@PreDestination = Asia} in {@PreDate= 25/1}
+@ prebuilt geographyV2 hasRoles PreDestination
+@prebuilt datetimeV2 hasRoles PreDate
+# BookingMaker
+- BookingMaker
+
+
+# Main_Menu
+- Cancel
+- Restart
+- go back to main menu
+- main menu
+- start again
+- cancel

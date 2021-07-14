@@ -1,0 +1,65 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "F69ptn",
+    "name": "Navigation_Destination",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "uxsLbo"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "Jd36mv"
+          },
+          "property": "conversation.destination_catch",
+          "value": "=null"
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "Sn9Vhy"
+          },
+          "maxTurnCount": 3,
+          "alwaysPrompt": true,
+          "allowInterruptions": "=  #_Interruption.Score >= 0.75 || #TextInput_Response_Sn9Vhy.Score < 0.7",
+          "prompt": "${TextInput_Prompt_Sn9Vhy()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "property": "conversation.destination_catch",
+          "value": "=join(createArray(@DestinationExtractor.location, @DestinationExtractor.type, @anys) ,\".\")",
+          "defaultValue": "any"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "2tQ5zq"
+          },
+          "property": "conversation.destination_type",
+          "value": "=split(conversation.destination_catch, \".\" )"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "l3KLgG"
+          },
+          "property": "conversation.destination",
+          "value": "=conversation.destination_type[0]"
+        }
+      ]
+    }
+  ],
+  "generator": "Navigation_Destination.lg",
+  "recognizer": "Navigation_Destination.lu.qna",
+  "id": "Navigation_Destination"
+}

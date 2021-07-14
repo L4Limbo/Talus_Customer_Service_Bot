@@ -1,0 +1,95 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "soeTCf",
+    "name": "Navigation_PreDestination",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "ZPYklq"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "oNwmGV"
+          },
+          "property": "conversation.region_type",
+          "value": "=split(conversation.pre_destination, \".\" )"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "meXHyS"
+          },
+          "condition": "= conversation.region_type == \"anywhere\"",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "74Q5DJ"
+              },
+              "property": "conversation.region",
+              "value": "= \"Any\""
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "m11vIr"
+              },
+              "condition": "conversation.region_type[1] == \"city\" || conversation.region_type[1] == \"poi\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "dP1LY4"
+                  },
+                  "property": "conversation.destination",
+                  "value": "=conversation.region_type[0]"
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "thqlnh"
+                  },
+                  "property": "conversation.region",
+                  "value": "= \"Any\""
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "5o1UHD"
+                  },
+                  "property": "conversation.region",
+                  "value": "=conversation.region_type[0]"
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "5yL9yK"
+                  },
+                  "property": "conversation.destination ",
+                  "value": "= \"Any\""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "Navigation_PreDestination.lg",
+  "recognizer": "Navigation_PreDestination.lu.qna",
+  "id": "Navigation_PreDestination"
+}

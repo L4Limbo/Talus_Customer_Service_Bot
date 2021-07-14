@@ -1,0 +1,10 @@
+[import](common.lg)
+
+# TextInput_Prompt_Tw9Z27()
+- ${TelAsker()}
+# TextInput_InvalidPrompt_Tw9Z27()
+- Please provide a valid number.
+- The number you typed is not valid. Please write a valid phone number
+- I cannot make the booking without a telephone number. Please the phone number of your preference
+# TextInput_DefaultValueResponse_Tw9Z27()
+- Thank you very much.

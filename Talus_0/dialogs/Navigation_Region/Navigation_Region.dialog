@@ -1,0 +1,110 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "Hk3TRM",
+    "name": "Navigation_Region",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "ys8rMU"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "suGF0R"
+          },
+          "property": "conversation.region_catch",
+          "value": "=null"
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "vIrWJh"
+          },
+          "maxTurnCount": 3,
+          "alwaysPrompt": true,
+          "allowInterruptions": "=  #_Interruption.Score >= 0.75 || #TextInput_Response_vIrWJh.Score < 0.7",
+          "prompt": "${TextInput_Prompt_vIrWJh()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "property": "conversation.region_catch",
+          "value": "=join(createArray(@RegionExtractor.location, @RegionExtractor.type, @anys) ,\".\")"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "znZNg6"
+          },
+          "property": "conversation.region_type",
+          "value": "=split(conversation.region_catch, \".\" )"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "R1u260"
+          },
+          "condition": "= conversation.region_type == \"anywhere\"",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "vojrAX"
+              },
+              "property": "conversation.region",
+              "value": "= \"Any\""
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "cixxrh"
+              },
+              "condition": "conversation.region_type[1] == \"city\" || conversation.region_type[1] == \"poi\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "02nSCZ"
+                  },
+                  "property": "conversation.destination",
+                  "value": "=conversation.region_type[0]"
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "4k3uEQ"
+                  },
+                  "property": "conversation.region",
+                  "value": "= \"Any\""
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "Sm6xfi"
+                  },
+                  "property": "conversation.region",
+                  "value": "=conversation.region_type[0]"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "Navigation_Region.lg",
+  "recognizer": "Navigation_Region.lu.qna",
+  "id": "Navigation_Region"
+}

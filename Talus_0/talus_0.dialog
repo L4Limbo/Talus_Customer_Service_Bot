@@ -1,0 +1,205 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "$designer": {
+      "name": "Talus_0",
+      "description": "",
+      "id": "OvKmGI"
+    }
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnConversationUpdateActivity",
+      "$designer": {
+        "id": "376720"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "518944",
+            "name": "Loop: for each item"
+          },
+          "itemsProperty": "turn.Activity.membersAdded",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "641773",
+                "name": "Branch: if/else"
+              },
+              "condition": "string(dialog.foreach.value.id) != string(turn.Activity.Recipient.id)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "859266",
+                    "name": "Send a response"
+                  },
+                  "activity": "${SendActivity_Welcome()}"
+                }
+              ]
+            }
+          ],
+          "value": "dialog.foreach.value"
+        }
+      ],
+      "runOnce": false
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "wXisjg",
+        "name": "Navigation"
+      },
+      "intent": "Navigation",
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "bQ8ORR"
+          },
+          "assignments": [
+            {
+              "property": "conversation.pre_destination",
+              "value": "=join(createArray(coalesce(@PreDestination.location, @geographyV2.location), coalesce(@PreDestination.type,@geographyV2.type)) ,\".\")"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "jXW5kQ"
+          },
+          "property": "conversation.pre",
+          "value": "=turn.recognized.luisResult.prediction.entities"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "Xh9LxT"
+          },
+          "property": "conversation.pre_dates",
+          "value": "=coalesce(conversation.pre.datetimeV2,conversation.pre.PreDate)"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "D0L43V"
+          },
+          "property": "conversation.predates",
+          "value": "=createArray(conversation.pre_dates)"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "jvSt6K"
+          },
+          "activityProcessed": true,
+          "dialog": "Navigation"
+        },
+        {
+          "$kind": "Microsoft.EndTurn",
+          "$designer": {
+            "id": "V112iJ"
+          }
+        }
+      ],
+      "condition": "=turn.recognized.score > 0.9"
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "IDvBed",
+        "name": "BookingMaker"
+      },
+      "intent": "BookingMaker",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "w1yXxu"
+          },
+          "activityProcessed": true,
+          "dialog": "BookingMaker"
+        },
+        {
+          "$kind": "Microsoft.EndTurn",
+          "$designer": {
+            "id": "mNSz22"
+          }
+        }
+      ],
+      "condition": "=turn.recognized.score > 0.7"
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "NSJdIh",
+        "name": "Main_Menu"
+      },
+      "intent": "Main_Menu",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "CyDOSj"
+          },
+          "activity": "${SendActivity_CyDOSj()}"
+        },
+        {
+          "$kind": "Microsoft.EndTurn",
+          "$designer": {
+            "id": "TeWX5o"
+          }
+        },
+        {
+          "$kind": "Microsoft.CancelAllDialogs",
+          "$designer": {
+            "id": "WxuvJf"
+          },
+          "activityProcessed": true
+        }
+      ],
+      "priority": 0,
+      "condition": "=turn.recognized.score > 0.7"
+    },
+    {
+      "$kind": "Microsoft.OnUnknownIntent",
+      "$designer": {
+        "id": "V0bRwI"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "FNdNM7"
+          },
+          "activity": "${SendActivity_FNdNM7()}"
+        },
+        {
+          "$kind": "Microsoft.QnAMakerDialog",
+          "$designer": {
+            "id": "gxGS50"
+          },
+          "knowledgeBaseId": "675623b7-2559-41b1-98fa-b87b2a78100a",
+          "endpointKey": "9c08a96c-7d0f-4c24-8286-cb3d53d55a14",
+          "hostname": "https://taluskb.azurewebsites.net/qnamaker",
+          "noAnswer": "Sorry, I did not find an answer.",
+          "threshold": 0.3,
+          "activeLearningCardTitle": "Did you mean:",
+          "cardNoMatchText": "None of the above.",
+          "cardNoMatchResponse": "Thanks for the feedback.",
+          "top": 3,
+          "isTest": false
+        }
+      ]
+    }
+  ],
+  "$schema": "https://raw.githubusercontent.com/microsoft/BotFramework-Composer/stable/Composer/packages/server/schemas/sdk.schema",
+  "generator": "talus_0.lg",
+  "id": "Talus_0",
+  "recognizer": "talus_0.lu.qna"
+}

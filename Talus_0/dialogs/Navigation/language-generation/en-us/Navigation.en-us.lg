@@ -1,0 +1,49 @@
+[import](common.lg)
+
+# SendActivity_s2mroG()
+- Nice, now I'm gonna ask you some to questions to match our bundles with your preferences.
+# SendActivity_9D4VrE()
+- Category Choosing
+# SendActivity_FbWpAK()
+- ```Booking Confirmed 
+Booking Code: ${conversation.package_name} ```
+
+# ChoiceInput_Prompt_afm0VZ()
+- ```${NavigationConfirmation(conversation.date_end)}
+You can make any changes you want or press OK
+to see the available packages```
+# TextInput_Prompt_xsLuda()
+- ${RegionCard()}
+# SendActivity_CsnxIz()
+- qna
+# SendActivity_soAB3C()
+- During the navigation stage I am collecting some of your preferences to present you the most suitable packages.
+# SendActivity_XUgWxw()
+- Cancelling and restarting menu
+# SendActivity_wIt0ik()
+- ${WelcomeUser()}
+# SendActivity_q3Kvik()
+- Restarting bot...
+# SendActivity_YLnyoP()
+- Restarting bot...
+# SendActivity_Uoeiwo()
+- ${WelcomeUser()}
+# SendActivity_2wYLhw()
+- ${WelcomeUser()}
+# TextInput_Prompt_bzJfkR()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_s31pzT()
+- ${expandText(@answer)}
+
+# SendActivity_IxuUK0()
+- [unknown->qna]
+# SendActivity_DsZ5iC()
+- It seems that our service is not working. Please, try to make a new search or restart the conversation
+# SendActivity_nbo5bl()
+- It seems that our travel agency does not have any packages that match your desires. Please, try another search...
+# SendActivity_WCcywc()
+- ${conversation.api_response_dest}

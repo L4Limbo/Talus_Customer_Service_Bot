@@ -1,0 +1,45 @@
+
+> LUIS application information
+> !# @app.versionId = 0.1
+> !# @app.culture = en-us
+> !# @app.luis_schema_version = 3.2.0
+
+
+> # Intent definitions
+
+# TextInput_Response_Sn9Vhy
+- I am interested in {@DestinationExtractor=London}
+- I like {@DestinationExtractor=Athens}
+- {@DestinationExtractor=Madrid}
+- i want to go to {@DestinationExtractor=Athens} from {@start=5 January} until {@end=10 January}
+- i want to travel to {@DestinationExtractor=London} in {@start=25 decemberundefined}
+- {@anys=anywhere}
+- i want to travel to {@geographyV2} in {datetimeV2:start}
+
+
+# _Interruption
+- change dates please
+- i want to change dates
+- BookingMaker
+
+
+> # Entity definitions
+
+@ ml anys
+
+
+> # PREBUILT Entity definitions
+
+@ prebuilt geographyV2 hasRole DestinationExtractor
+
+@ prebuilt datetimeV2 hasRoles start,end
+
+
+> # Phrase list definitions
+
+
+> # List entities
+
+> # RegEx entities
+
+

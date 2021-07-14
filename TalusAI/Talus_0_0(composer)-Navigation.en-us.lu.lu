@@ -1,0 +1,86 @@
+
+> LUIS application information
+> !# @app.name = Talus_0_0(composer)-Navigation.en-us.lu
+> !# @app.desc = Model for Talus_0_0 app, targetting composer
+> !# @app.versionId = 0.3
+> !# @app.culture = en-us
+> !# @app.luis_schema_version = 7.0.0
+> !# @app.tokenizerVersion = 1.0.0
+
+
+> # Intent definitions
+
+# _Interruption
+- bookingmaker
+
+
+# cancel
+- cancel
+- go back to main menu
+- main menu
+- restart
+- start again
+
+
+# change_categories
+- basically i want to go for {@list Categories}
+- {@list Categories}
+
+
+# change_dates
+- change dates please
+- i want to change dates
+
+
+# change_region_destination
+- change destination to {@RegionExtractor2=athens}
+- change region to {@RegionExtractor2=america}
+- i am interested to change destination to {@RegionExtractor2=europe}
+- i want to change destination
+- i want to change region
+
+
+# None
+
+
+# TextInput_Response_xsLuda
+- {@RegionExtractor=america}
+- {@anys=anywhere}
+- i am interested in {@RegionExtractor=europe}
+- i like {@RegionExtractor=asia}
+
+
+> # Entity definitions
+
+@ ml anys
+
+
+> # PREBUILT Entity definitions
+
+@ prebuilt geographyV2 hasRoles RegionExtractor,RegionExtractor2
+
+
+> # Phrase list definitions
+
+
+> # List entities
+
+@ list Categories = 
+	- Adventure Tourism :
+		- Adventure
+	- Wildlife Tourism :
+		- Wildlife
+	- Medical Tourism :
+		- Medical
+	- Cruise Tourism :
+		- Cruise
+	- Any :
+		- Anything
+
+
+> # RegEx entities
+
+
+> # Pattern.Any entities
+
+@ patternany "list Categories"

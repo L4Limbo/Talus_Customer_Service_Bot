@@ -1,0 +1,9 @@
+[import](common.lg)
+
+# DateTimeInput_Prompt_hm97jn()
+- ```When do you want to travel?
+You can write a date or the desirable starting and ending date of your travel ```
+# SendActivity_xKagkj()
+- conversation.date_new ${conversation.date_new}
+# SendActivity_h5MJmr()
+- qna

@@ -1,0 +1,76 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "bOCjG3",
+    "name": "Navigation_Category",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "EceNla"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "8xMSEG"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": true,
+          "prompt": "${ChoiceInput_Prompt_8xMSEG()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "style": "heroCard",
+          "choices": [
+            {
+              "value": "Adventure Tourism",
+              "synonyms": [
+                "Adventure"
+              ]
+            },
+            {
+              "value": "Wildlife Tourism",
+              "synonyms": [
+                "Wildlife"
+              ]
+            },
+            {
+              "value": "Medical Tourism",
+              "synonyms": [
+                "Medical"
+              ]
+            },
+            {
+              "value": "Any"
+            }
+          ],
+          "property": "conversation.category",
+          "outputFormat": "value",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or ",
+            "inlineSeparator": ", "
+          },
+          "recognizerOptions": {
+            "recognizeOrdinals": true,
+            "recognizeNumbers": true
+          },
+          "allowInterruptions": "= #_Interruption.Score >= 0.70 || #ChoiceInput_Response_8xMSEG.Score < 0.7"
+        }
+      ]
+    }
+  ],
+  "generator": "Navigation_Category.lg",
+  "recognizer": "Navigation_Category.lu.qna",
+  "id": "Navigation_Category"
+}

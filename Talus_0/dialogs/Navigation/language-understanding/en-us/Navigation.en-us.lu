@@ -1,0 +1,50 @@
+
+# change_dates
+- change dates please
+- i want to change dates
+
+
+# TextInput_Response_xsLuda
+- I am interested in {@RegionExtractor = Europe}
+- I like {@RegionExtractor=Asia}
+- {@RegionExtractor=America}
+- {@anys = anywhere}
+
+@ prebuilt geographyV2 hasRoles RegionExtractor
+@ ml anys
+
+# change_region_destination
+- I am interested to change destination to {@RegionExtractor2 = Europe}
+- change destination to {@RegionExtractor2=Athens}
+- change region to {@RegionExtractor2=America}
+- {@anys = anywhere}
+- i want to change region
+- i want to change destination
+
+@ prebuilt geographyV2 hasRoles RegionExtractor2
+@ ml anys
+
+# cancel
+- Cancel
+- Restart
+- go back to main menu
+- main menu
+- start again
+
+
+# change_categories
+- Basically i want to go for {@list Categories}
+- {@list Categories}
+
+@ list Categories = 
+	- Adventure Tourism:
+		-   Adventure
+    - Wildlife Tourism:
+        - Wildlife
+    -Medical Tourism:
+        - Medical
+	- Cruise Tourism:
+		-   Cruise
+    - Any:
+        -Anything
+	

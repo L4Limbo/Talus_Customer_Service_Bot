@@ -1,0 +1,9 @@
+
+# TextInput_Response_vIrWJh
+- I am interested in {@RegionExtractor = Europe}
+- I like {@RegionExtractor=Asia}
+- {@RegionExtractor=America}
+- {@anys = anywhere}
+
+@ prebuilt geographyV2 hasRoles RegionExtractor
+@ ml anys

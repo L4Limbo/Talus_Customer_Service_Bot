@@ -1,0 +1,586 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "15004r",
+    "name": "BookingMaker",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "LCeNLz"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "A1317s"
+          },
+          "property": "conversation.splitter",
+          "value": "='/*/'"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "eeuLGm"
+          },
+          "property": "conversation.action_code",
+          "value": "='1'"
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "0E7Sqf"
+          },
+          "assignments": [
+            {
+              "property": "conversation.name",
+              "value": "='NotDefined'"
+            },
+            {
+              "property": "conversation.package_name",
+              "value": "='NotDefined'"
+            },
+            {
+              "property": "conversation.tel",
+              "value": "='NotDefined'"
+            },
+            {
+              "property": "conversation.email",
+              "value": "='NotDefined'"
+            },
+            {
+              "property": "conversation.fb_acc",
+              "value": "='NotDefined'"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "8ktxNB"
+          },
+          "activity": "${SendActivity_8ktxNB()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "NZGxNU"
+          },
+          "activity": "${SendActivity_NZGxNU()}"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "Q29BXB"
+          },
+          "activityProcessed": true,
+          "dialog": "BookingMaker_Name"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "GM15U7"
+          },
+          "activityProcessed": true,
+          "dialog": "BookingMaker_Tel"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "Pi7ga6"
+          },
+          "activityProcessed": true,
+          "dialog": "BookingMaker_Email"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "1V0sTO"
+          },
+          "activity": "${SendActivity_1V0sTO()}"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "Jlas0Z"
+          },
+          "property": "user.loop",
+          "value": []
+        },
+        {
+          "$kind": "Microsoft.EditArray",
+          "$designer": {
+            "id": "zO6wr2"
+          },
+          "changeType": "push",
+          "itemsProperty": "user.loop",
+          "value": "=1"
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "eZWXMq"
+          },
+          "index": "dialog.foreach.index",
+          "value": "dialog.foreach.value",
+          "itemsProperty": "user.loop",
+          "actions": [
+            {
+              "$kind": "Microsoft.ChoiceInput",
+              "$designer": {
+                "id": "a7EIas"
+              },
+              "defaultLocale": "en-us",
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": true,
+              "allowInterruptions": false,
+              "prompt": "${ChoiceInput_Prompt_a7EIas()}",
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "defaultValueResponse": "",
+              "choiceOptions": {
+                "includeNumbers": true,
+                "inlineOrMore": ", or ",
+                "inlineOr": " or ",
+                "inlineSeparator": ", "
+              },
+              "property": "dialog.confirmed",
+              "choices": [
+                {
+                  "value": "Change Name"
+                },
+                {
+                  "value": "Change Tel"
+                },
+                {
+                  "value": "Change Email"
+                },
+                {
+                  "value": "OK",
+                  "synonyms": [
+                    "ok",
+                    "nice"
+                  ]
+                },
+                {
+                  "value": "Cancel",
+                  "synonyms": [
+                    "restart bot",
+                    "cancel",
+                    "restart"
+                  ]
+                }
+              ],
+              "style": "heroCard",
+              "recognizerOptions": {
+                "recognizeOrdinals": true,
+                "recognizeNumbers": true,
+                "noValue": true
+              },
+              "defaultValue": "=\"Cancel\""
+            },
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "Ci3EX7"
+              },
+              "condition": "dialog.confirmed",
+              "cases": [
+                {
+                  "value": "OK",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BreakLoop",
+                      "$designer": {
+                        "id": "qEatVS"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "value": "Change Name",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "3optyy"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "BookingMaker_Name"
+                    },
+                    {
+                      "$kind": "Microsoft.EditArray",
+                      "$designer": {
+                        "id": "Q6djfm"
+                      },
+                      "changeType": "push",
+                      "itemsProperty": "user.loop",
+                      "value": "=1"
+                    },
+                    {
+                      "$kind": "Microsoft.ContinueLoop",
+                      "$designer": {
+                        "id": "ZQ8pmN"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "value": "Change Email",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "FoPlU1"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "BookingMaker_Email"
+                    },
+                    {
+                      "$kind": "Microsoft.EditArray",
+                      "$designer": {
+                        "id": "CyKHFs"
+                      },
+                      "changeType": "push",
+                      "itemsProperty": "user.loop",
+                      "value": "=1"
+                    },
+                    {
+                      "$kind": "Microsoft.ContinueLoop",
+                      "$designer": {
+                        "id": "YaWNlq"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "value": "Change Tel",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "dQMsjZ"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "BookingMaker_Tel"
+                    },
+                    {
+                      "$kind": "Microsoft.EditArray",
+                      "$designer": {
+                        "id": "0Jbs8D"
+                      },
+                      "changeType": "push",
+                      "itemsProperty": "user.loop",
+                      "value": "=1"
+                    },
+                    {
+                      "$kind": "Microsoft.ContinueLoop",
+                      "$designer": {
+                        "id": "JWWG79"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "value": "Cancel",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "3fdFGi"
+                      },
+                      "activity": "${SendActivity_3fdFGi()}"
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "MOdI0y"
+                      },
+                      "activity": "${SendActivity_MOdI0y()}"
+                    },
+                    {
+                      "$kind": "Microsoft.CancelAllDialogs",
+                      "$designer": {
+                        "id": "66T0sC"
+                      },
+                      "activityProcessed": true
+                    },
+                    {
+                      "$kind": "Microsoft.EndTurn",
+                      "$designer": {
+                        "id": "fTVmGA"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "hQ56OR"
+          },
+          "activity": "${SendActivity_hQ56OR()}"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "YNNzsR"
+          },
+          "method": "POST",
+          "url": "http://localhost/api_db.php",
+          "resultProperty": "dialog.api_response",
+          "contentType": "application/json",
+          "body": {
+            "type": 2,
+            "Name": "${conversation.name}",
+            "Mail": "${conversation.email}",
+            "Phone": "${conversation.tel}",
+            "Package": "${conversation.package}",
+            "Account": "Manolis",
+            "Userbook": 1
+          },
+          "headers": {},
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "0M7HAJ"
+          },
+          "condition": "=dialog.api_response.statusCode == 200",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "8Zljv6"
+              },
+              "activity": "${SendActivity_8Zljv6()}"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "RbBFsN"
+              },
+              "activity": "${SendActivity_RbBFsN()}"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "Y9v2aj"
+              },
+              "activity": "${SendActivity_Y9v2aj()}"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "CIlvSc"
+              },
+              "activity": "${SendActivity_CIlvSc()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "rw1wEN"
+          },
+          "activity": "${SendActivity_rw1wEN()}"
+        },
+        {
+          "$kind": "Microsoft.CancelAllDialogs",
+          "$designer": {
+            "id": "rtDT7U"
+          },
+          "activityProcessed": true
+        },
+        {
+          "$kind": "Microsoft.EndTurn",
+          "$designer": {
+            "id": "2Mqr8D"
+          }
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "eURw4P",
+        "name": "Change_email"
+      },
+      "intent": "Change_email",
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "vqhTgL"
+          },
+          "property": "conversation.new_email",
+          "value": "= coalesce(@email, @emailCatch)"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "0A6xrx"
+          },
+          "condition": "= conversation.new_email == null",
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "7pw9uh"
+              },
+              "activityProcessed": true,
+              "dialog": "BookingMaker_Email"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "dRl4x8"
+              },
+              "property": "conversation.email",
+              "value": "=conversation.new_email"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "BXcrnY",
+        "name": "Change_Name"
+      },
+      "intent": "Change_Name",
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "jlK6if"
+          },
+          "property": "conversation.new_name",
+          "value": "= toUpper(coalesce(@personName, @userNameCatch))"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "r8DVgs"
+          },
+          "condition": "= conversation.new_name == null",
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "XLL82I"
+              },
+              "activityProcessed": true,
+              "dialog": "BookingMaker_Name"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "K4iXZv"
+              },
+              "property": "conversation.name",
+              "value": "=conversation.new_name"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "lzEVAD",
+        "name": "Change_Tel"
+      },
+      "intent": "Change_Tel",
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "0ebw7p"
+          },
+          "value": "=coalesce(@phonenumber, @phoneCatch)",
+          "property": "conversation.new_tel"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "Ng0G5V"
+          },
+          "condition": "= conversation.new_tel == null",
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "suSa8C"
+              },
+              "activityProcessed": true,
+              "dialog": "BookingMaker_Tel"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "kNTvtM"
+              },
+              "property": "conversation.tel",
+              "value": "=conversation.new_tel"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnUnknownIntent",
+      "$designer": {
+        "id": "G7BH83"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "YkKI87"
+          },
+          "activity": "${SendActivity_YkKI87()}"
+        },
+        {
+          "$kind": "Microsoft.QnAMakerDialog",
+          "$designer": {
+            "id": "Ku6MET"
+          },
+          "knowledgeBaseId": "675623b7-2559-41b1-98fa-b87b2a78100a",
+          "endpointKey": "9c08a96c-7d0f-4c24-8286-cb3d53d55a14",
+          "hostname": "https://taluskb.azurewebsites.net/qnamaker",
+          "noAnswer": "Sorry, I did not find an answer.",
+          "threshold": 0.3,
+          "activeLearningCardTitle": "Did you mean:",
+          "cardNoMatchText": "None of the above.",
+          "cardNoMatchResponse": "Thanks for the feedback.",
+          "top": 3,
+          "isTest": false
+        }
+      ]
+    }
+  ],
+  "generator": "BookingMaker.lg",
+  "recognizer": "BookingMaker.lu.qna",
+  "id": "BookingMaker"
+}

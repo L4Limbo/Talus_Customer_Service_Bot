@@ -1,0 +1,33 @@
+[import](common.lg)
+
+# SendActivity_NZGxNU()
+-${BookingIntroduction()}
+# SendActivity_hQ56OR()
+- ```Booking Confirmed , thank you```
+
+# ChoiceInput_Prompt_a7EIas()
+- ${BookingCorfmation()}
+
+
+# SendActivity_1V0sTO()
+- I have collected your information, now we will continue to confirmation.
+- Before I continue to the booking, I would like you confirm your information.
+# SendActivity_3fdFGi()
+- Restarting Bot...
+# SendActivity_MOdI0y()
+- ${WelcomeUser()}
+# SendActivity_8Zljv6()
+- Thank you very much, your reservation has been saved to our site.
+# SendActivity_RbBFsN()
+- Thank you very much, your reservation has been saved to our site.
+# SendActivity_CIlvSc()
+- (debug): In case of bad status send message to an agent.
+
+# SendActivity_Y9v2aj()
+- DEBUG: $dialog.api_response
+# SendActivity_YkKI87()
+- [unknown->qna]
+# SendActivity_8ktxNB()
+- Booking Package: ${conversation.package}
+# SendActivity_rw1wEN()
+- ${WelcomeUser()}

@@ -1,0 +1,53 @@
+
+> LUIS application information
+> !# @app.versionId = 0.1
+> !# @app.culture = en-us
+> !# @app.luis_schema_version = 3.2.0
+
+
+> # Intent definitions
+
+# TextInput_Response_Tw9Z27
+- {@phonenumber:phoneCatch}
+- My phone is {@phonenumber:phoneCatch}
+
+
+# _Interruption
+- info@gmail.com
+- I want to learn about your packages
+- Navigation
+- I want to see your deals
+- BookingMaker
+- Book a Trip
+- Can I Book a Trip
+- i want to use another email
+- Do you have any bundles for Asia in 25/1
+- i would like to use another name
+- Do you have any bundles for Asia
+- i want to change dates
+- change dates please
+- I would like to suggest me hollidays in America
+- Can you recommend some travel options
+- i wrote my email wrong
+- Exploration please
+- i would like to navigate through your packages
+- change name
+- New Search
+
+
+> # Entity definitions
+
+
+> # PREBUILT Entity definitions
+
+@ prebuilt phonenumber hasRole phoneCatch
+
+
+> # Phrase list definitions
+
+
+> # List entities
+
+> # RegEx entities
+
+

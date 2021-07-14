@@ -1,0 +1,319 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "m8nDBT",
+    "name": "DisplayPackages",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "fWmCes"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "6kghRw"
+          },
+          "assignments": [
+            {
+              "property": "conversation.package",
+              "value": "= null"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "Y1Q2yr"
+          },
+          "property": "conversation.data_dest",
+          "value": "=conversation.api_response_dest.content"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "ZnDxRl"
+          },
+          "property": "user.loop",
+          "value": []
+        },
+        {
+          "$kind": "Microsoft.EditArray",
+          "$designer": {
+            "id": "M3d9df"
+          },
+          "changeType": "push",
+          "itemsProperty": "user.loop",
+          "value": "=1"
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "M5YZCJ"
+          },
+          "index": "dialog.foreach.index",
+          "value": "dialog.foreach.value",
+          "itemsProperty": "user.loop",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "Nx1yPr"
+              },
+              "activity": "${SendActivity_Nx1yPr()}"
+            },
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "X6KO63"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": true,
+              "allowInterruptions": "= #_Interruption.Score > 0.9",
+              "prompt": "${TextInput_Prompt_X6KO63()}",
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "defaultValueResponse": "",
+              "property": "dialog.choice"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "IWAv62"
+              },
+              "condition": "= count(split(dialog.choice,\":\")) > 2",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "FMtpqZ"
+                  },
+                  "assignments": [
+                    {
+                      "property": "dialog.type",
+                      "value": "=split(dialog.choice,\":\")[0]"
+                    },
+                    {
+                      "property": "dialog.package",
+                      "value": "=split(dialog.choice,\":\")[1]"
+                    }
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "Y1nIvR"
+                  },
+                  "assignments": [
+                    {
+                      "property": "dialog.type",
+                      "value": "=split(dialog.choice,\":\")[0]"
+                    },
+                    {
+                      "property": "dialog.package",
+                      "value": "=split(dialog.choice,\":\")[1]"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "9shRpQ"
+                  },
+                  "property": "dialog.description",
+                  "value": "=split(dialog.choice,\":\")[2]"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "wp4b1y"
+              },
+              "property": "conversation.package",
+              "value": "=dialog.package"
+            },
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "ZhSJtZ"
+              },
+              "cases": [
+                {
+                  "value": "Learn more",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "kmpRs3"
+                      },
+                      "activity": "${SendActivity_kmpRs3()}"
+                    },
+                    {
+                      "$kind": "Microsoft.ConfirmInput",
+                      "$designer": {
+                        "id": "p4ZmYB"
+                      },
+                      "defaultLocale": "en-us",
+                      "disabled": false,
+                      "maxTurnCount": 3,
+                      "alwaysPrompt": true,
+                      "allowInterruptions": false,
+                      "prompt": "${ConfirmInput_Prompt_p4ZmYB()}",
+                      "unrecognizedPrompt": "",
+                      "invalidPrompt": "",
+                      "defaultValueResponse": "",
+                      "choiceOptions": {
+                        "includeNumbers": true,
+                        "inlineOrMore": ", or ",
+                        "inlineOr": " or ",
+                        "inlineSeparator": ", "
+                      },
+                      "property": "dialog.choiceb"
+                    },
+                    {
+                      "$kind": "Microsoft.SwitchCondition",
+                      "$designer": {
+                        "id": "SEbNZS"
+                      },
+                      "condition": "dialog.choiceb",
+                      "cases": [
+                        {
+                          "value": "true",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "8w5BGE"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "BookingMaker"
+                            },
+                            {
+                              "$kind": "Microsoft.BreakLoop",
+                              "$designer": {
+                                "id": "dBpdui"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "value": "false",
+                          "actions": []
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.EditArray",
+                      "$designer": {
+                        "id": "h98p9q"
+                      },
+                      "changeType": "push",
+                      "itemsProperty": "user.loop",
+                      "value": "=1"
+                    },
+                    {
+                      "$kind": "Microsoft.ContinueLoop",
+                      "$designer": {
+                        "id": "Vk9Cc8"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "value": "Book",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "b3oPIb"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "BookingMaker"
+                    },
+                    {
+                      "$kind": "Microsoft.BreakLoop",
+                      "$designer": {
+                        "id": "eg3l6s"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "condition": "dialog.type",
+              "default": [
+                {
+                  "$kind": "Microsoft.ConfirmInput",
+                  "$designer": {
+                    "id": "3jcJnu"
+                  },
+                  "defaultLocale": "en-us",
+                  "disabled": false,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": true,
+                  "allowInterruptions": true,
+                  "prompt": "${ConfirmInput_Prompt_3jcJnu()}",
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "choiceOptions": {
+                    "includeNumbers": true,
+                    "inlineOrMore": ", or ",
+                    "inlineOr": " or ",
+                    "inlineSeparator": ", "
+                  },
+                  "property": "dialog.search"
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "kJvz3W"
+                  },
+                  "condition": "=dialog.search == true",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "spms5K"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "Navigation"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "X66lQ0"
+                      },
+                      "activity": "${SendActivity_X66lQ0()}"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.BreakLoop",
+                  "$designer": {
+                    "id": "pCOz0c"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "DisplayPackages.lg",
+  "recognizer": "DisplayPackages.lu.qna",
+  "id": "DisplayPackages"
+}

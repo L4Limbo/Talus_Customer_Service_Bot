@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_DisplayPackages",
+  "recognizers": {
+    "en-us": "DisplayPackages.en-us.lu",
+    "": "DisplayPackages.en-us.lu"
+  }
+}

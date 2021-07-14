@@ -1,0 +1,51 @@
+
+> LUIS application information
+> !# @app.name = Talus_0_0(composer)-Navigation_Destination.en-us.lu
+> !# @app.desc = Model for Talus_0_0 app, targetting composer
+> !# @app.versionId = 0.2
+> !# @app.culture = en-us
+> !# @app.luis_schema_version = 7.0.0
+> !# @app.tokenizerVersion = 1.0.0
+
+
+> # Intent definitions
+
+# _Interruption
+- bookingmaker
+- change dates please
+- i want to change dates
+
+
+# None
+
+
+# TextInput_Response_Sn9Vhy
+- {@anys=anywhere}
+- i am interested in {@DestinationExtractor=london}
+- i like {@DestinationExtractor=athens}
+- i want to go to {@DestinationExtractor=athens} from {@start=5 january} until {@end=10 january}
+- i want to travel to {@DestinationExtractor=london} in {@start=25 decemberundefined}
+- {@DestinationExtractor=madrid}
+- i want to travel to {@geographyV2} in {datetimeV2:start}
+
+
+> # Entity definitions
+
+@ ml anys
+
+
+> # PREBUILT Entity definitions
+
+@ prebuilt datetimeV2 hasRoles start,end
+
+@ prebuilt geographyV2 hasRole DestinationExtractor
+
+
+> # Phrase list definitions
+
+
+> # List entities
+
+> # RegEx entities
+
+

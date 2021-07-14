@@ -1,0 +1,43 @@
+
+> LUIS application information
+> !# @app.name = Talus_0_0(composer)-Navigation_Dates.en-us.lu
+> !# @app.desc = Model for Talus_0_0 app, targetting composer
+> !# @app.versionId = 0.1
+> !# @app.culture = en-us
+> !# @app.luis_schema_version = 7.0.0
+> !# @app.tokenizerVersion = 1.0.0
+
+
+> # Intent definitions
+
+# _Interruption
+- bookingmaker
+
+
+# DateTimeInput_Response_hm97jn
+- i want to go to athens in {@start_date=25 december}
+- from {@datetimeV2:start_date} to {datetimeV2:end_date}
+- i wanna travel to {@geographyV2:DestinationExtractor2} from {datetimeV2:start_date} and come back {datetimeV2:end_date}
+
+
+# None
+
+
+> # Entity definitions
+
+
+> # PREBUILT Entity definitions
+
+@ prebuilt datetimeV2 hasRoles start_date,end_date
+
+@ prebuilt geographyV2 hasRole DestinationExtractor2
+
+
+> # Phrase list definitions
+
+
+> # List entities
+
+> # RegEx entities
+
+

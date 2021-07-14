@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_BookingMaker",
+  "recognizers": {
+    "en-us": "BookingMaker.en-us.lu",
+    "": "BookingMaker.en-us.lu"
+  }
+}

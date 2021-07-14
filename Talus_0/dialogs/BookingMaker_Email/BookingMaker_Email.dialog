@@ -1,0 +1,44 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "oiZdl5",
+    "name": "BookingMaker_Email",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "Ytq9ev"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "VPq7iX"
+          },
+          "maxTurnCount": 2,
+          "alwaysPrompt": true,
+          "unrecognizedPrompt": "${TextInput_UnrecognizedPrompt_VPq7iX()}",
+          "invalidPrompt": "${TextInput_InvalidPrompt_VPq7iX()}",
+          "prompt": "${TextInput_Prompt_VPq7iX()}",
+          "property": "conversation.email",
+          "validations": [
+            "isMatch(this.value, '^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$')== True"
+          ],
+          "value": "= coalesce(@email, @emailCatch)",
+          "defaultValueResponse": "${TextInput_DefaultValueResponse_VPq7iX()}",
+          "allowInterruptions": "= #_Interruption.Score >= 0.75",
+          "defaultValue": "-"
+        }
+      ]
+    }
+  ],
+  "generator": "BookingMaker_Email.lg",
+  "recognizer": "BookingMaker_Email.lu.qna",
+  "id": "BookingMaker_Email"
+}

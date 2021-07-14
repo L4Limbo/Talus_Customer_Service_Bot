@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_Navigation_Dates",
+  "recognizers": {
+    "en-us": "Navigation_Dates.en-us.lu",
+    "": "Navigation_Dates.en-us.lu"
+  }
+}

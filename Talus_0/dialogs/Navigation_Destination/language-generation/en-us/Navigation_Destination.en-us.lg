@@ -1,0 +1,8 @@
+[import](common.lg)
+
+# TextInput_Prompt_Sn9Vhy()
+- ${DestinationCard()}
+# SendActivity_nChcVZ()
+- qna
+# SendActivity_hjCEsp()
+- ```Hello, my name is Talus and I am a travel agent chatbot. I am here to help you navigate through our travel agency travel bundles. You can select "Navigate through packages" and then I'll collect your prefferences to recomend you the bundle that fits in your options. You can come back to main menu by selecting "Main Menu" or simple saying something like "restart"...```

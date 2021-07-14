@@ -1,0 +1,40 @@
+
+> LUIS application information
+> !# @app.versionId = 0.1
+> !# @app.culture = en-us
+> !# @app.luis_schema_version = 3.2.0
+
+
+> # Intent definitions
+
+# TextInput_Response_vIrWJh
+- I am interested in {@RegionExtractor=Europe}
+- I like {@RegionExtractor=Asia}
+- {@RegionExtractor=America}
+- {@anys=anywhere}
+
+
+# _Interruption
+- change dates please
+- i want to change dates
+- BookingMaker
+
+
+> # Entity definitions
+
+@ ml anys
+
+
+> # PREBUILT Entity definitions
+
+@ prebuilt geographyV2 hasRole RegionExtractor
+
+
+> # Phrase list definitions
+
+
+> # List entities
+
+> # RegEx entities
+
+

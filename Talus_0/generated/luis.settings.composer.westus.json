@@ -1,0 +1,48 @@
+{
+    "luis": {
+        "DisplayPackages_en_us_lu": {
+            "appId": "2c398bce-741f-4a69-94c5-c6afebaa3f75",
+            "version": "0.1"
+        },
+        "BookingMaker_en_us_lu": {
+            "appId": "bb5f4991-ee76-4a09-8b05-363b61710aeb",
+            "version": "0.1"
+        },
+        "BookingMaker_Email_en_us_lu": {
+            "appId": "9cedd0e1-f39f-4ba5-b2a2-ab0cb5896c4d",
+            "version": "0.7"
+        },
+        "BookingMaker_Tel_en_us_lu": {
+            "appId": "9ebe2a60-4195-415c-bf4b-71f8f00e2614",
+            "version": "0.7"
+        },
+        "BookingMaker_Name_en_us_lu": {
+            "appId": "4af79ce0-f15c-43cc-b57e-55afd244ae45",
+            "version": "0.7"
+        },
+        "Navigation_Dates_en_us_lu": {
+            "appId": "ff4a427b-ba13-4358-8285-07d388f69d7c",
+            "version": "0.1"
+        },
+        "Navigation_Destination_en_us_lu": {
+            "appId": "c7ca83a0-9625-478c-932c-45fb249fc3b6",
+            "version": "0.2"
+        },
+        "Navigation_Category_en_us_lu": {
+            "appId": "d0efde1c-bbeb-47f8-ba9e-853e8cabca5c",
+            "version": "0.3"
+        },
+        "Navigation_en_us_lu": {
+            "appId": "c502011e-b207-432b-a427-dfb3da5ad3cb",
+            "version": "0.3"
+        },
+        "Navigation_Region_en_us_lu": {
+            "appId": "b85b464f-80dd-44d6-93f9-2d4a32bb0471",
+            "version": "0.1"
+        },
+        "talus_0_en_us_lu": {
+            "appId": "b6d06a4a-e81d-490f-b40b-935ba67ecb46",
+            "version": "0.6"
+        }
+    }
+}

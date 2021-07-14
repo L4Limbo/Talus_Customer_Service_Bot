@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.LuisRecognizer",
+  "id": "LUIS_Navigation_Dates",
+  "applicationId": "=settings.luis.Navigation_Dates_en_us_lu.appId",
+  "version": "=settings.luis.Navigation_Dates_en_us_lu.version",
+  "endpoint": "=settings.luis.endpoint",
+  "endpointKey": "=settings.luis.endpointKey"
+}

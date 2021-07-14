@@ -1,0 +1,16 @@
+[import](common.lg)
+
+# Ask_Activity_D1haMz()
+- ${AllCards()}
+# SendActivity_Nx1yPr()
+- If you want to make another search you can write "New Search" or go back to the Main Menu by saying it.
+# TextInput_Prompt_X6KO63()
+-${AllCards(conversation.data_dest)}
+# ConfirmInput_Prompt_3jcJnu()
+- Want to make another search?
+# SendActivity_X66lQ0()
+- ${WelcomeUser()}
+# SendActivity_kmpRs3()
+- ${dialog.description}
+# ConfirmInput_Prompt_p4ZmYB()
+- Do you want to book this package?

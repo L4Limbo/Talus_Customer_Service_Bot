@@ -1,0 +1,184 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "UhWYFO",
+    "name": "Navigation_Dates",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "emohlM"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.DateTimeInput",
+          "$designer": {
+            "id": "hm97jn"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": true,
+          "prompt": "${DateTimeInput_Prompt_hm97jn()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "property": "conversation.date_catch",
+          "value": "=coalesce(@datetimeV2)",
+          "allowInterruptions": "= #_Interruption.Score >= 0.75"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "vCq8gT"
+          },
+          "condition": "=count(conversation.date_catch) == 1",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "SAIgvW"
+              },
+              "condition": "conversation.date_catch[1].value == null",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "YvDzcJ"
+                  },
+                  "assignments": [
+                    {
+                      "property": "conversation.date_start",
+                      "value": "=conversation.date_catch[1].start"
+                    },
+                    {
+                      "property": "conversation.date_end",
+                      "value": "=conversation.date_catch[1].end"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "yWI7HN"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.date_new1",
+                      "value": "=split(user.date_start,\"-\")"
+                    },
+                    {
+                      "property": "user.date_new2",
+                      "value": "=split(user.date_end,\"-\")"
+                    }
+                  ],
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "RqH9fT"
+                  },
+                  "property": "user.date1",
+                  "value": "=concat(user.date_new[0],user.date_new[1],user.date_new[2])",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "x5uHGH"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.date1",
+                      "value": "=concat(user.date_new1[0],user.date_new1[1],user.date_new1[2])"
+                    },
+                    {
+                      "property": "user.date2",
+                      "value": "=concat(user.date_new2[0],user.date_new2[1],user.date_new2[2])"
+                    }
+                  ],
+                  "disabled": true
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "UYZXfQ"
+                  },
+                  "assignments": [
+                    {
+                      "property": "conversation.date_start",
+                      "value": "=conversation.date_catch[1].value"
+                    },
+                    {
+                      "property": "conversation.date_end",
+                      "value": "=null"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "KXT9Hn"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.date_new",
+                      "value": "=split(user.date,\"-\")"
+                    }
+                  ],
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "xKagkj"
+                  },
+                  "activity": "${SendActivity_xKagkj()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "QHPNAP"
+                  },
+                  "property": "user.date",
+                  "value": "=concat(user.date_new[0],user.date_new[1],user.date_new[2])",
+                  "disabled": true
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "ymhWXF"
+              },
+              "assignments": [
+                {
+                  "property": "conversation.date_start ",
+                  "value": "= conversation.date_catch[0].value"
+                },
+                {
+                  "property": "conversation.date_end",
+                  "value": "= null"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "Navigation_Dates.lg",
+  "recognizer": "Navigation_Dates.lu.qna",
+  "id": "Navigation_Dates"
+}

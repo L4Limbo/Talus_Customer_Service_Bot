@@ -1,0 +1,16 @@
+
+# ChoiceInput_Response_8xMSEG
+- @ list Categories
+
+@ list Categories = 
+	- Adventure Tourism:
+		-   Adventure
+    - Wildlife Tourism:
+        - Wildlife
+    -Medical Tourism:
+        - Medical
+	- Cruise Tourism:
+		-   Cruise
+    - Any:
+        -Anything
+	

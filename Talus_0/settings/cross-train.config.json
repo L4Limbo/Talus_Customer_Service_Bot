@@ -1,0 +1,70 @@
+{
+  "BookingMaker.en-us": {
+    "rootDialog": false,
+    "triggers": {
+      "": [
+        "BookingMaker_Name.en-us",
+        "BookingMaker_Tel.en-us",
+        "BookingMaker_Email.en-us",
+        "BookingMaker_Name.en-us",
+        "BookingMaker_Email.en-us",
+        "BookingMaker_Tel.en-us"
+      ],
+      "Change_email": [
+        "BookingMaker_Email.en-us"
+      ],
+      "Change_Name": [
+        "BookingMaker_Name.en-us"
+      ],
+      "Change_Tel": [
+        "BookingMaker_Tel.en-us"
+      ]
+    }
+  },
+  "DisplayPackages.en-us": {
+    "rootDialog": false,
+    "triggers": {
+      "": [
+        "BookingMaker.en-us",
+        "BookingMaker.en-us",
+        "Navigation.en-us"
+      ]
+    }
+  },
+  "Navigation.en-us": {
+    "rootDialog": false,
+    "triggers": {
+      "": [
+        "Navigation_Category.en-us",
+        "Navigation_PreDestination.en-us",
+        "Navigation_Region.en-us",
+        "Navigation_Destination.en-us",
+        "Navigation_Dates.en-us",
+        "Navigation_PreDates.en-us",
+        "Navigation_Category.en-us",
+        "Navigation_Region.en-us",
+        "Navigation_Destination.en-us",
+        "Navigation_Dates.en-us",
+        "DisplayPackages.en-us"
+      ],
+      "change_dates": [
+        "Navigation_Dates.en-us"
+      ],
+      "change_region_destination": [],
+      "cancel": [],
+      "change_categories": []
+    }
+  },
+  "talus_0.en-us": {
+    "rootDialog": true,
+    "triggers": {
+      "Navigation": [
+        "Navigation.en-us"
+      ],
+      "BookingMaker": [
+        "BookingMaker.en-us"
+      ],
+      "Main_Menu": []
+    }
+  }
+}

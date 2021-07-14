@@ -1,0 +1,695 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "ylPILv",
+    "name": "Navigation",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "R0Yhy3"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "s2mroG"
+          },
+          "activity": "${SendActivity_s2mroG()}"
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "PEhfvH"
+          },
+          "assignments": [
+            {
+              "property": "conversation.category",
+              "value": "= coalesce($category)"
+            },
+            {
+              "property": "conversation.region",
+              "value": "=@geographyV2"
+            },
+            {
+              "property": "conversation.destination",
+              "value": "=@geographyV2"
+            },
+            {
+              "property": "conversation.date_start",
+              "value": "=@datetimeV2"
+            },
+            {
+              "property": "conversation.date_end",
+              "value": "=@datetimeV2"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "lcVIDq"
+          },
+          "activityProcessed": true,
+          "dialog": "Navigation_Category"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "xRaWuJ"
+          },
+          "condition": "= !empty(conversation.pre_destination)",
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "dEMRmW"
+              },
+              "activityProcessed": true,
+              "dialog": "Navigation_PreDestination"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "mEMoNS"
+              },
+              "activityProcessed": true,
+              "dialog": "Navigation_Region"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "uzbqjW"
+              },
+              "condition": "conversation.destination == null",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "AgsKCI"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Navigation_Destination"
+                }
+              ],
+              "elseActions": []
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "ehLRib"
+          },
+          "condition": "=conversation.predates[0]==null",
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "EDF34X"
+              },
+              "activityProcessed": true,
+              "dialog": "Navigation_Dates"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "c7Uhgh"
+              },
+              "activityProcessed": true,
+              "dialog": "Navigation_PreDates"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "DYZGoC"
+          },
+          "property": "user.loop2",
+          "value": []
+        },
+        {
+          "$kind": "Microsoft.EditArray",
+          "$designer": {
+            "id": "xwpdsC"
+          },
+          "changeType": "push",
+          "itemsProperty": "user.loop2",
+          "value": "=1"
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "0avDIJ"
+          },
+          "index": "dialog.foreach.index",
+          "value": "dialog.foreach.value",
+          "itemsProperty": "user.loop2",
+          "actions": [
+            {
+              "$kind": "Microsoft.ChoiceInput",
+              "$designer": {
+                "id": "afm0VZ"
+              },
+              "defaultLocale": "en-us",
+              "maxTurnCount": 3,
+              "alwaysPrompt": true,
+              "allowInterruptions": "= #_Interruption.Score >= 0.75",
+              "prompt": "${ChoiceInput_Prompt_afm0VZ()}",
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "defaultValueResponse": "",
+              "choiceOptions": {
+                "includeNumbers": true,
+                "inlineOrMore": ", or ",
+                "inlineOr": " or ",
+                "inlineSeparator": ", "
+              },
+              "property": "dialog.confirmed2",
+              "choices": [
+                {
+                  "value": "Change Category"
+                },
+                {
+                  "value": "Change Region"
+                },
+                {
+                  "value": "Change Destination"
+                },
+                {
+                  "value": "Change Dates"
+                },
+                {
+                  "value": "OK"
+                },
+                {
+                  "value": "Restart Bot",
+                  "synonyms": [
+                    "cancel",
+                    "restart",
+                    "back to menu"
+                  ]
+                }
+              ],
+              "style": "heroCard",
+              "recognizerOptions": {
+                "recognizeOrdinals": true,
+                "recognizeNumbers": true
+              }
+            },
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "VhfJJ2"
+              },
+              "condition": "dialog.confirmed2",
+              "cases": [
+                {
+                  "value": "OK",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BreakLoop",
+                      "$designer": {
+                        "id": "9y8Csw"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "value": "Change Category",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "plJfGJ"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "Navigation_Category"
+                    },
+                    {
+                      "$kind": "Microsoft.EditArray",
+                      "$designer": {
+                        "id": "5DlyjI"
+                      },
+                      "changeType": "push",
+                      "itemsProperty": "user.loop2",
+                      "value": "=1"
+                    },
+                    {
+                      "$kind": "Microsoft.ContinueLoop",
+                      "$designer": {
+                        "id": "2QE2ow"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "value": "Change Region",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "cs7UZk"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "Navigation_Region"
+                    },
+                    {
+                      "$kind": "Microsoft.EditArray",
+                      "$designer": {
+                        "id": "igyfLh"
+                      },
+                      "changeType": "push",
+                      "itemsProperty": "user.loop2",
+                      "value": "=1"
+                    },
+                    {
+                      "$kind": "Microsoft.ContinueLoop",
+                      "$designer": {
+                        "id": "m874eD"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "value": "Change Destination",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "RYCxVE"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "Navigation_Destination"
+                    },
+                    {
+                      "$kind": "Microsoft.EditArray",
+                      "$designer": {
+                        "id": "eXY6M4"
+                      },
+                      "changeType": "push",
+                      "itemsProperty": "user.loop2",
+                      "value": "=1"
+                    },
+                    {
+                      "$kind": "Microsoft.ContinueLoop",
+                      "$designer": {
+                        "id": "0shHmh"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "value": "Change Dates",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "irBofh"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "Navigation_Dates",
+                      "options": {}
+                    },
+                    {
+                      "$kind": "Microsoft.EditArray",
+                      "$designer": {
+                        "id": "RJtEvs"
+                      },
+                      "changeType": "push",
+                      "itemsProperty": "user.loop2",
+                      "value": "=1"
+                    },
+                    {
+                      "$kind": "Microsoft.ContinueLoop",
+                      "$designer": {
+                        "id": "YHdRTs"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "value": "Restart Bot",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "q3Kvik"
+                      },
+                      "activity": "${SendActivity_q3Kvik()}"
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "Uoeiwo"
+                      },
+                      "activity": "${SendActivity_Uoeiwo()}"
+                    },
+                    {
+                      "$kind": "Microsoft.CancelAllDialogs",
+                      "$designer": {
+                        "id": "04n9Ce"
+                      },
+                      "activityProcessed": true
+                    },
+                    {
+                      "$kind": "Microsoft.EndTurn",
+                      "$designer": {
+                        "id": "3g6ApT"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "VjwlWD"
+          },
+          "condition": "=conversation.destination ==\"Any\"",
+          "actions": [
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "kIuXeB"
+              },
+              "method": "POST",
+              "url": "http://localhost/api_db.php",
+              "resultProperty": "conversation.api_response_dest",
+              "contentType": "application/json",
+              "body": {
+                "type": 1,
+                "agency": 1,
+                "date": {
+                  "start": "${conversation.date_start}",
+                  "end": "${conversation.date_end}"
+                },
+                "location": "${conversation.region}"
+              },
+              "headers": {},
+              "responseType": "json"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "6OvEOC"
+              },
+              "method": "POST",
+              "url": "http://localhost/api_db.php",
+              "resultProperty": "conversation.api_response_dest",
+              "contentType": "application/json",
+              "body": {
+                "type": 1,
+                "agency": 1,
+                "date": {
+                  "start": "${conversation.date_start}",
+                  "end": "${conversation.date_end}"
+                },
+                "location": "${conversation.destination}"
+              },
+              "headers": {},
+              "responseType": "json"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "WCcywc"
+          },
+          "activity": "${SendActivity_WCcywc()}"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "TmxMAO"
+          },
+          "condition": "=conversation.api_response_dest.statusCode == 200",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "pW7DOY"
+              },
+              "condition": "=count(conversation.api_response_dest.content) == 0",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "nbo5bl"
+                  },
+                  "activity": "${SendActivity_nbo5bl()}"
+                },
+                {
+                  "$kind": "Microsoft.CancelAllDialogs",
+                  "$designer": {
+                    "id": "kEQwi2"
+                  },
+                  "activityProcessed": true
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "g1aHYB"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "DisplayPackages"
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "DsZ5iC"
+              },
+              "activity": "${SendActivity_DsZ5iC()}"
+            },
+            {
+              "$kind": "Microsoft.CancelAllDialogs",
+              "$designer": {
+                "id": "MefMhn"
+              },
+              "activityProcessed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "oceIJ2",
+        "name": "change_dates"
+      },
+      "intent": "change_dates",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "orZUio"
+          },
+          "activityProcessed": true,
+          "dialog": "Navigation_Dates"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "BDEVSg",
+        "name": "change_region_destination"
+      },
+      "intent": "change_region_destination",
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "N0jUCn"
+          },
+          "property": "conversation.region_catch",
+          "value": "=join(createArray(@RegionExtractor2.location, @RegionExtractor2.type, @anys) ,\".\")"
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "xsLuda"
+          },
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": true,
+          "prompt": "${TextInput_Prompt_xsLuda()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "property": "conversation.region_catch",
+          "value": "=join(createArray(@RegionExtractor.location, @RegionExtractor.type, @anys) ,\".\")"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "P85rAT"
+          },
+          "property": "conversation.region_type",
+          "value": "=split(conversation.region_catch, \".\" )"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "lfqc0a"
+          },
+          "condition": "= user.region_type == \"anywhere\"",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "IO9Y6j"
+              },
+              "property": "conversation.region",
+              "value": "= \"Any\""
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "vVJfK1"
+              },
+              "condition": "conversation.region_type[1] == \"city\" || conversation.region_type[1] == \"poi\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "5joRZv"
+                  },
+                  "property": "conversation.destination",
+                  "value": "=conversation.region_type[0]"
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "A1VgSC"
+                  },
+                  "property": "conversation.region",
+                  "value": "= \"Any\""
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "KwWn2n"
+                  },
+                  "property": "conversation.region",
+                  "value": "=conversation.region_type[0]"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "IY8ngM",
+        "name": "cancel"
+      },
+      "intent": "cancel",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "XUgWxw"
+          },
+          "activity": "${SendActivity_XUgWxw()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "wIt0ik"
+          },
+          "activity": "${SendActivity_wIt0ik()}"
+        },
+        {
+          "$kind": "Microsoft.EndTurn",
+          "$designer": {
+            "id": "V46SMH"
+          }
+        }
+      ],
+      "condition": "=turn.recognized.score > 0.75"
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "Yp8IRy",
+        "name": "change_categories"
+      },
+      "intent": "change_categories",
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "bReg9z"
+          },
+          "property": "conversation.category",
+          "value": "=@Categories"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnUnknownIntent",
+      "$designer": {
+        "id": "AzUCIK"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "IxuUK0"
+          },
+          "activity": "${SendActivity_IxuUK0()}"
+        },
+        {
+          "$kind": "Microsoft.QnAMakerDialog",
+          "$designer": {
+            "id": "PPBfoa"
+          },
+          "knowledgeBaseId": "675623b7-2559-41b1-98fa-b87b2a78100a",
+          "endpointKey": "9c08a96c-7d0f-4c24-8286-cb3d53d55a14",
+          "hostname": "https://taluskb.azurewebsites.net/qnamaker",
+          "noAnswer": "Sorry, I did not find an answer.",
+          "threshold": 0.3,
+          "activeLearningCardTitle": "Did you mean:",
+          "cardNoMatchText": "None of the above.",
+          "cardNoMatchResponse": "Thanks for the feedback.",
+          "top": 3,
+          "isTest": false
+        }
+      ]
+    }
+  ],
+  "generator": "Navigation.lg",
+  "recognizer": "Navigation.lu.qna",
+  "id": "Navigation"
+}

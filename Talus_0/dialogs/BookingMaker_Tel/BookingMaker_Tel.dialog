@@ -1,0 +1,45 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "ICIT4p",
+    "name": "BookingMaker_Tel",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "0GX5Y0"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "Tw9Z27"
+          },
+          "maxTurnCount": 3,
+          "alwaysPrompt": true,
+          "allowInterruptions": "= #_Interruption.Score >= 0.75",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "${TextInput_InvalidPrompt_Tw9Z27()}",
+          "defaultValueResponse": "${TextInput_DefaultValueResponse_Tw9Z27()}",
+          "prompt": "${TextInput_Prompt_Tw9Z27()}",
+          "property": "conversation.tel",
+          "value": "=coalesce(@phonenumber, @phoneCatch)",
+          "validations": [
+            "length(this.value) >= 10 ",
+            "isMatch(this.value ,'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$')"
+          ],
+          "defaultValue": "-"
+        }
+      ]
+    }
+  ],
+  "generator": "BookingMaker_Tel.lg",
+  "recognizer": "BookingMaker_Tel.lu.qna",
+  "id": "BookingMaker_Tel"
+}

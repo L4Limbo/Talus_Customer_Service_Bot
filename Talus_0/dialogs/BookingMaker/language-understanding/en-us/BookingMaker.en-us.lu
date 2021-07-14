@@ -1,0 +1,26 @@
+
+# Change_email
+- Change Email
+- can i change my Email
+- i wrote my email wrong
+- email change
+- i want to use another email
+- My email is {@emailCatch = anestis2799@gmail.com}
+- {@emailCatch = info@gmail.com}
+
+@ prebuilt email hasRoles emailCatch
+# Change_Name
+- I want to use another name
+- change name
+- i would like to use another name
+- {@userNameCatch}
+- change my name to {@userNameCatch}
+@ prebuilt personName hasRoles userNameCatch
+# Change_Tel
+- I want to use another phone number
+- New phone number
+- I would like to use another phone number
+- change telephone number
+- change my telephone to {@phoneCatch}
+
+@ prebuilt phonenumber hasRoles phoneCatch

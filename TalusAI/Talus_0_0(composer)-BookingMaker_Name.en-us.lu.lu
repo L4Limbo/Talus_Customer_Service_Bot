@@ -1,0 +1,70 @@
+
+> LUIS application information
+> !# @app.name = Talus_0_0(composer)-BookingMaker_Name.en-us.lu
+> !# @app.desc = Model for Talus_0_0 app, targetting composer
+> !# @app.versionId = 0.7
+> !# @app.culture = en-us
+> !# @app.luis_schema_version = 7.0.0
+> !# @app.tokenizerVersion = 1.0.0
+
+
+> # Intent definitions
+
+# _Interruption
+- book a trip
+- bookingmaker
+- can i book a trip
+- can i change my email
+- can you recommend some travel options
+- change dates please
+- change email
+- change telephone number
+- create booking
+- do you have any bundles for asia
+- do you have any bundles for asia in 25/1
+- email change
+- exploration please
+- i want to change dates
+- i want to learn about your packages
+- i want to make a booking
+- i want to make another search
+- i want to see your deals
+- i want to travel to new york in 25/1
+- i want to use another phone number
+- i would like to navigate through your packages
+- i would like to suggest me hollidays in america
+- i would like to use another phone number
+- i wrote my email wrong
+- info@gmail.com
+- my email is anestis2799@gmail.com
+- navigation
+- new phone number
+- new search
+- please suggest the best travel packages
+
+
+# None
+
+
+# TextInput_Response_vpWmcK
+- i'm {@userNameCatch=george brown}
+- my name is {@userNameCatch=john}
+- {@personName:userNameCatch}
+
+
+> # Entity definitions
+
+
+> # PREBUILT Entity definitions
+
+@ prebuilt personName hasRole userNameCatch
+
+
+> # Phrase list definitions
+
+
+> # List entities
+
+> # RegEx entities
+
+

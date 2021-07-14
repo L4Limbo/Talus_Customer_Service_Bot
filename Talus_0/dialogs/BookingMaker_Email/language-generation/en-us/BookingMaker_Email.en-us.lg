@@ -1,0 +1,11 @@
+[import](common.lg)
+
+# TextInput_Prompt_VPq7iX()
+- ${EmailAsker()}
+
+# TextInput_InvalidPrompt_VPq7iX()
+- This email doesn't exist. Please provide a valid email.
+# TextInput_DefaultValueResponse_VPq7iX()
+- Thank you.
+# TextInput_UnrecognizedPrompt_VPq7iX()
+- Ok I will set the email to "Empty". But, don't worry You can still make the booking.

@@ -1,0 +1,165 @@
+[import](common.lg)
+
+# SendActivity_Welcome()
+- ${WelcomeUser()}
+
+# SendActivity_Ep7gJB()
+- You're welcome
+- Glad to help you
+# SendActivity_GhUyAT()
+- Have a nice day
+- Goodbye
+# SendActivity_cMCAu4()
+- ${WelcomeUser()}
+# SendActivity_CyDOSj()
+- ${WelcomeUser()}
+# SendActivity_6mQxZE()
+- pos ${user.test}
+# SendActivity_AFBjBu()
+- DONE ${user.testdate}
+# TextInput_Prompt_UU0ecD()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_n2vbUj()
+- ${expandText(@answer)}
+
+# TextInput_Prompt_WcLGrb()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_IZe9lb()
+- ${expandText(@answer)}
+
+# SendActivity_nwibMl()
+- I am sorry but I don't understand your statement. Can you rephrase, plesase?
+- I don't know about that. You may want to speak to a real agent
+# SendActivity_zbapqA()
+- qna
+# SendActivity_WrHzq1()
+-${WelcomeUser()}
+# SendActivity_KATh8h()
+- here
+# SendActivity_0jvGwb()
+- ${user.test}
+# SendActivity_Lj81kV()
+- RECEIVED
+# SendActivity_NyvHOB()
+- Message received ${turn.activity.text}
+# UpdateActivity_Activity_ZX02zR()
+- Message received
+# QnAMakerDialog_NoAnswer_Uft1D3()
+- Sorry, I don't know that.
+- Unfortunately I am not informed about that.
+- I don't know that, maybe you should talk to a real agent.
+# TextInput_Prompt_cn9t5c()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_StVWf8()
+- ${expandText(@answer)}
+
+# TextInput_Prompt_lT2T4s()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_zo7Yn3()
+- ${expandText(@answer)}
+
+# SendActivity_xHLsMZ()
+- qna
+# SendActivity_bIDr89()
+- qna
+# TextInput_Prompt_U4Ojec()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_0QLztH()
+- ${expandText(@answer)}
+
+# TextInput_Prompt_p168y6()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_iD0gQa()
+- ${expandText(@answer)}
+
+# TextInput_Prompt_uRd3B0()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_Ibgopc()
+- ${expandText(@answer)}
+
+# TextInput_Prompt_PZjn9n()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_JRKOGj()
+- ${expandText(@answer)}
+
+# TextInput_Prompt_lJdJnw()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_dCfpQ2()
+- ${expandText(@answer)}
+
+# TextInput_Prompt_r3k7Ri()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_0SFrmv()
+- ${expandText(@answer)}
+
+# TextInput_Prompt_AjKcrw()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_sFHzd3()
+- ${expandText(@answer)}
+
+# TextInput_Prompt_sx79o4()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_lSgT7f()
+- ${expandText(@answer)}
+
+# TextInput_Prompt_8iQKoL()
+[Activity
+    Text = ${expandText(@answer)}
+    SuggestedActions = ${foreach(turn.recognized.answers[0].context.prompts, x, x.displayText)}
+]
+
+# SendActivity_kpOOdm()
+- ${expandText(@answer)}
+
+# SendActivity_MzgrVH()
+- qna
+# SendActivity_FNdNM7()
+- [unknown->qna]

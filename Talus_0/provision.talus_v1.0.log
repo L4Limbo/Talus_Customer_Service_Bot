@@ -1,0 +1,19 @@
+{
+  "profileName": "talus_v1.0",
+  "jobId": "f0eb8d7a-5c29-4ec6-aba2-3179f6380117",
+  "projectId": "3974.7116369448277",
+  "time": "2021-03-16T08:46:16.115Z",
+  "log": [
+    "Creating Azure resources...",
+    "Checking the Existence of the Resource Group ...",
+    "Use the Resource Group: talus at westus",
+    "> Creating App Registration ...",
+    "Start to add password for App, Id : 3ac6313c-7b99-4408-a062-618aa9d54ba8",
+    "> Create App Registration Success! ID: 3ac6313c-7b99-4408-a062-618aa9d54ba8",
+    "Deploying Web App Resource ...",
+    "Deploying Bot Resource ...",
+    "{\"stack\":\"Error: Bot is not valid. Errors: The bot name is already registered to another bot application..  See https://aka.ms/bot-requirements for detailed requirements.\\n    at new t (C:\\\\Users\\\\Anestis\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\lib\\\\node\\\\index.js:16:37408)\\n    at C:\\\\Users\\\\Anestis\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\lib\\\\node\\\\index.js:18:103741\",\"message\":\"Bot is not valid. Errors: The bot name is already registered to another bot application..  See https://aka.ms/bot-requirements for detailed requirements.\",\"code\":\"InvalidBotData\",\"statusCode\":400,\"request\":{\"body\":\"{\\\"location\\\":\\\"global\\\",\\\"sku\\\":{\\\"name\\\":\\\"F0\\\"},\\\"kind\\\":\\\"bot\\\",\\\"properties\\\":{\\\"displayName\\\":\\\"talus\\\",\\\"endpoint\\\":\\\"https://talus.azurewebsites.net/api/messages\\\",\\\"msaAppId\\\":\\\"3ac6313c-7b99-4408-a062-618aa9d54ba8\\\"}}\"},\"response\":{\"body\":\"{\\\"error\\\":{\\\"code\\\":\\\"InvalidBotData\\\",\\\"message\\\":\\\"Bot is not valid. Errors: The bot name is already registered to another bot application..  See https://aka.ms/bot-requirements for detailed requirements.\\\"}}\"},\"body\":{}}",
+    "{\"name\":\"BOT_REGISTRATION_ERROR\",\"message\":\"Error - Bot is not valid. Errors: The bot name is already registered to another bot application..  See https://aka.ms/bot-requirements for detailed requirements.\",\"stack\":\"Error\\n    at new n (C:\\\\Users\\\\Anestis\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\lib\\\\node\\\\index.js:18:97996)\\n    at Object.t.createCustomizeError (C:\\\\Users\\\\Anestis\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\lib\\\\node\\\\index.js:18:98326)\\n    at e.<anonymous> (C:\\\\Users\\\\Anestis\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\lib\\\\node\\\\index.js:479:33482)\\n    at C:\\\\Users\\\\Anestis\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\lib\\\\node\\\\index.js:479:12347\\n    at Object.throw (C:\\\\Users\\\\Anestis\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\lib\\\\node\\\\index.js:479:12452)\\n    at s (C:\\\\Users\\\\Anestis\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\lib\\\\node\\\\index.js:479:11217)\"}",
+    "BOT_REGISTRATION_ERROR - Error - Bot is not valid. Errors: The bot name is already registered to another bot application..  See https://aka.ms/bot-requirements for detailed requirements.\n        detail message can see provision.talus_v1.0.log in your bot folder"
+  ]
+}

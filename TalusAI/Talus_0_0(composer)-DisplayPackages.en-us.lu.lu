@@ -1,0 +1,41 @@
+
+> LUIS application information
+> !# @app.name = Talus_0_0(composer)-DisplayPackages.en-us.lu
+> !# @app.desc = Model for Talus_0_0 app, targetting composer
+> !# @app.versionId = 0.1
+> !# @app.culture = en-us
+> !# @app.luis_schema_version = 7.0.0
+> !# @app.tokenizerVersion = 1.0.0
+
+
+> # Intent definitions
+
+# _Interruption
+- bookingmaker
+- change dates please
+- i want to change dates
+
+
+# None
+
+
+# TextInput_Response_X6KO63
+- book: london
+- book: something
+- learn more about
+
+
+> # Entity definitions
+
+
+> # PREBUILT Entity definitions
+
+
+> # Phrase list definitions
+
+
+> # List entities
+
+> # RegEx entities
+
+

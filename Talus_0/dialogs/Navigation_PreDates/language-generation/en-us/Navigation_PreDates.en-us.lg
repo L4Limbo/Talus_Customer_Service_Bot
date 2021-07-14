@@ -1,0 +1,4 @@
+[import](common.lg)
+
+# SendActivity_kakr1c()
+- conversation.date_new ${conversation.date_new}

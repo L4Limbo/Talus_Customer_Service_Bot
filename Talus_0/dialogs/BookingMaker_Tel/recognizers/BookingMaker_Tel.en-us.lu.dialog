@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.LuisRecognizer",
+  "id": "LUIS_BookingMaker_Tel",
+  "applicationId": "=settings.luis.BookingMaker_Tel_en_us_lu.appId",
+  "version": "=settings.luis.BookingMaker_Tel_en_us_lu.version",
+  "endpoint": "=settings.luis.endpoint",
+  "endpointKey": "=settings.luis.endpointKey"
+}
